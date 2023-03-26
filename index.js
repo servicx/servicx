@@ -1,4 +1,5 @@
 let carousel_div=document.getElementById("caro_body");
+let form=document.getElementById("lead");
 
 
 
@@ -24,3 +25,30 @@ function carousel(){
     },2000);
 }
 carousel();
+
+form.addEventListener("submit",function(e){
+    e.preventDefault();
+
+    let formData={
+        name:form.name.value,
+        email:form.email.value,
+        mobile:form.mobile.value,
+        message:form.message.value
+    }
+    console.log("f",formData);
+    alert("Thanks forsharing your problems with us");
+    
+    const lead=async()=>{
+        console.log("see",formData);
+       fetch("http://localhost:3000/leads",{
+        method:"POST",
+        body:JSON.stringify(formData),
+        headers:{
+            "Content-Type":"application/json",
+        },
+       })
+    }
+    lead();
+});
+
+//console.log("see",formData);

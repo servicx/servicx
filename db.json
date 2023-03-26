@@ -1,0 +1,21 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "leads": [
+    {
+      "name": "jai",
+      "email": "jai@gmail.com",
+      "mobile": "65443",
+      "message": "right",
+      "id": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
