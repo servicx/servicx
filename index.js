@@ -1,5 +1,7 @@
 let carousel_div=document.getElementById("caro_body");
 let form=document.getElementById("lead");
+let noticeBr1=document.querySelector(".noticeBr");
+
 
 
 
@@ -12,6 +14,7 @@ function carousel(){
     ];
     let imgElement=document.createElement("img");
     imgElement.style.width="100%";
+    imgElement.style.height="100%";
     imgElement.style.borderRadius="2%";
     imgElement.style.border="0px solid red";
 
@@ -84,6 +87,41 @@ carousel();
     // lead();
 });
 
+
+let getdata=async()=>{
+    try {
+        let res=await fetch("http://localhost:3000/notice");
+        let data=await res.json();
+        console.log("we",data);
+        foo(data);
+    } catch (errr) {
+        console.log("errr",errr);
+    }
+}
+getdata();
+
+const foo=(data)=>{
+    console.log("fin",data);
+    noticeBr1.innerHTML=null;
+    data.forEach(function(ele) {
+       
+        console.log(ele);
+        // let div=document.createElement("div");
+       
+        let card=document.createElement("div");
+        card.style.height="fit-content";
+        let massa=document.createElement("p");
+        massa.style.fontFamily="Verdana, Geneva, Tahoma, sans-serif";
+        massa.style.fontSize="30px";
+        
+        massa="*"+"  "+ele.messagena;
+       
+        card.append(massa);
+        console.log(card)
+        // div.append(card);
+        noticeBr1.append(card);
+    });
+}
 
 
 /*
